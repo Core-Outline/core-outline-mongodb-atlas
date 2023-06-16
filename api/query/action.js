@@ -1,6 +1,6 @@
 const { createQuery, retrieveQueries, getQuery, executeQuery } = require('services/index.js');
 const { schema } = require('lib/index.js');
-const { transformQuery } = require('./transformers.js');
+const transformQuery = require('./transformers');
 const {
   createQuerySchema,
   getQuerySchema,
@@ -14,12 +14,12 @@ const create = (req, res) => {
 };
 
 const retrieve = (req, res) => {
-  const result = schema.validateSchema(req.params, retrieveQueriesSchema);
+  const result = schema.validateSchema(req.query, retrieveQueriesSchema);
   return retrieveQueries(result, res);
 };
 
 const get = (req, res) => {
-  const result = schema.validateSchema(req.params, getQuerySchema);
+  const result = schema.validateSchema(req.query, getQuerySchema);
   return getQuery(result, res);
 };
 

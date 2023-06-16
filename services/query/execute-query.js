@@ -1,14 +1,15 @@
 const { mongo } = require('lib/index.js');
 
 const executeQuery = async ({ value, error }, res) => {
-  const { user_name, password, database, queries, ref_table } = value;
+  const { username, password, database, queries, reference_table, reference_column } = value;
   const connection = await mongo.connDataSourceDB(
-    `mongodb+srv://${user_name}:${password}@cluster0.rfams.mongodb.net`,
+    `${String(value.url).replace('username', username).replace('password', password)}`,
   );
   const db = connection.db(`${database}`);
-  const collection = db.collection(`${ref_table}`);
+  const collection = db.collection(`${reference_table}`);
+  console.log('This is the queries', queries);
 
-  collection
+  const output = await collection
     .find({
       $and: queries,
     })
@@ -17,8 +18,13 @@ const executeQuery = async ({ value, error }, res) => {
         console.error('Error finding documents:', err);
         return;
       }
-
-      // Process the retrieved documents
-      return documents;
+      if (documents) {
+        console.log('These are the documents', documents);
+        return documents;
+      }
     });
+  console.log('This is the collection', output);
+  return output.map((val) => val);
 };
+
+module.exports = executeQuery;

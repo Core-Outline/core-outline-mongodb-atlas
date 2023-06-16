@@ -6,6 +6,9 @@ const createQuerySchema = schema.defineSchema({
   type: joi.string().required(),
   database: joi.string().required(),
   queries: joi.array(),
+  data_source_id: joi.string().required,
+  reference_table: joi.string(),
+  reference_column: joi.string(),
 });
 
 const getQuerySchema = schema.defineSchema({

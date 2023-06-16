@@ -16,7 +16,7 @@ const findDataSources = schema.defineSchema({
 });
 
 const findDataSource = schema.defineSchema({
-  id: joi.string().alphanum().required(),
+  _id: joi.string().alphanum().required(),
 });
 
 module.exports = {

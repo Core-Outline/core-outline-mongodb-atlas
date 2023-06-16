@@ -1,6 +1,6 @@
 const query_endpoints = {
   CREATE_QUERY: '/create-query',
-  GET_QUERY: '/query',
+  GET_QUERY: '/get-query',
   RETRIEVE_QUERIES: '/',
   EXECUTE_QUERY: '/execute',
 };
