@@ -1,10 +1,9 @@
 const { LISTINGS_URL } = process.env;
 
 const data_source_endpoints = {
-  CREATE_DATA_SOURCE: '/create-listing',
-  RETRIEVE_DATA_SOURCES: '/delete-listing',
-  GET_DATA_SOURCE: '/',
-  GET_LISTING: '/get-listing',
+  CREATE_DATA_SOURCE: '/create-data-source',
+  GET_DATA_SOURCE: '/data-source',
+  RETRIEVE_DATA_SOURCES: '/',
 };
 
 module.exports = {

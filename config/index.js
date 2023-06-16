@@ -1,5 +1,11 @@
-const serverConfigs = require('config/components/server.js');
-const dataSourceEndpoints = require('config/components/data-source.js');
-const mongoConfigs = require('config/components/db.js');
+const serverConfigs = require('./components/server.js');
+const dataSourceConfigs = require('./components/data-source.js');
+const queryConfigs = require('./components/queries.js');
+const mongoConfigs = require('./components/db.js');
 
-module.exports = { serverConfigs, dataSourceEndpoints, mongoConfigs };
+module.exports = {
+  serverConfigs,
+  dataSourceConfigs,
+  mongoConfigs,
+  queryConfigs,
+};

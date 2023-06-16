@@ -1,5 +1,3 @@
-const request = require('lib/index.js');
-const { listing_url, listings_endpoints } = require('config/index.js');
 const { mongo } = require('lib/index.js');
 const { dataSourceSchema } = require('models/index.js');
 

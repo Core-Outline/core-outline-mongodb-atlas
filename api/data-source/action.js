@@ -1,10 +1,12 @@
 const { createDataSource, retrieveDataSources, getDataSource } = require('services/index.js');
 const { schema } = require('lib/index.js');
-const { query } = require('express');
 const { createDataSourceSchema, findDataSources, findDataSource } = require('./req-schema.js');
 
 const create = (req, res) => {
-  const result = schema.validateSchema(req.body, createDataSourceSchema);
+  const result = schema.validateSchema(
+    { ...req.body, ...{ type: 'mongodb' } },
+    createDataSourceSchema,
+  );
   return createDataSource(result, res);
 };
 

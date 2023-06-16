@@ -7,10 +7,12 @@ const createDataSourceSchema = schema.defineSchema({
   username: joi.string().required(),
   password: joi.string().alphanum().required(),
   user_id: joi.string().required(),
+  url: joi.string().required(),
 });
 
 const findDataSources = schema.defineSchema({
   user_id: joi.string().alphanum().required(),
+  data_source_id: joi.string(),
 });
 
 const findDataSource = schema.defineSchema({
