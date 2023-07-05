@@ -19,8 +19,13 @@ const findDataSource = schema.defineSchema({
   _id: joi.string().alphanum().required(),
 });
 
+const getDBColumnTables = schema.defineSchema({
+  _id: joi.string().alphanum().required(),
+});
+
 module.exports = {
   createDataSourceSchema,
   findDataSources,
   findDataSource,
+  getDBColumnTables,
 };

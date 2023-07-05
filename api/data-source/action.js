@@ -1,6 +1,16 @@
-const { createDataSource, retrieveDataSources, getDataSource } = require('services/index.js');
+const {
+  createDataSource,
+  retrieveDataSources,
+  getDataSource,
+  getDatabaseTablesandColumns,
+} = require('services/index.js');
 const { schema } = require('lib/index.js');
-const { createDataSourceSchema, findDataSources, findDataSource } = require('./req-schema.js');
+const {
+  createDataSourceSchema,
+  findDataSources,
+  findDataSource,
+  getDBColumnTables,
+} = require('./req-schema.js');
 
 const create = (req, res) => {
   const result = schema.validateSchema(
@@ -20,8 +30,14 @@ const get = (req, res) => {
   return getDataSource(result, res);
 };
 
+const getDatabaseTablesColumns = (req, res) => {
+  const result = schema.validateSchema(req.query, getDBColumnTables);
+  return getDatabaseTablesandColumns(result, res);
+};
+
 module.exports = {
   create,
   retrieve,
   get,
+  getDatabaseTablesColumns,
 };
